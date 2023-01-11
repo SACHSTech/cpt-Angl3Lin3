@@ -11,5 +11,9 @@ public class Data extends DataBase {
         distributionPercentage = percentage;
         monthAndYear = date;
     }
+
+    public String toString(){
+        return valorantRank + " " + distributionPercentage + " " + monthAndYear;
+    }
     
 }
