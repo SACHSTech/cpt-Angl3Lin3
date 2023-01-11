@@ -19,7 +19,6 @@ public class DataBase {
 
             if(j != 0) {
                 for(int i = 0; i < str.length; i++) {
-                    System.out.println(str[i]);
                     double percent = Double.parseDouble(str[1]);
                     Data input = new Data(str[0], percent, str[2]);
                     data.add(input);
@@ -30,7 +29,7 @@ public class DataBase {
         }
 
         System.out.println(data);
-        
+
         } catch(Exception e) {
             
         }
