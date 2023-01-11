@@ -14,6 +14,10 @@ public class Data extends DataBase {
         return distributionPercentage;
     }
 
+    public String getMonthAndYear(){
+        return monthAndYear;
+    }
+
     public Data(String rank, double percentage, String date){
         valorantRank = rank;
         distributionPercentage = percentage;
