@@ -1,6 +1,6 @@
 package cpt;
 
-public class Data extends DataBase {
+public class Data {
 
     private String valorantRank;
     private double distributionPercentage;

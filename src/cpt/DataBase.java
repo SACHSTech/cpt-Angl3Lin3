@@ -5,6 +5,8 @@ import java.io.*;
 
 public class DataBase {
 
+    private ArrayList<Data> data = new ArrayList<Data>();
+
     public static void main(String[] args) {
         
         try {
@@ -34,8 +36,10 @@ public class DataBase {
             
         }
 
-        
+    }
 
+    public ArrayList<Data> getArrayListData(){
+        return data;
     }
    
 
