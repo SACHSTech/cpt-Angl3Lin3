@@ -32,6 +32,8 @@ public class DataBase {
 
         System.out.println(data);
 
+        scan.close();
+
         } catch(Exception e) {
             
         }
