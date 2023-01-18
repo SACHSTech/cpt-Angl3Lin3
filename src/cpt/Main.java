@@ -14,28 +14,33 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
   private LineChart chart;
-  private NumberAxis xAxis;
+  private CategoryAxis xAxis;
   private NumberAxis yAxis;
 
   public Parent createContent() {
-      xAxis = new NumberAxis("Values for X-Axis", 0, 3, 1);
-      yAxis = new NumberAxis("Values for Y-Axis", 0, 10, 1);
-      ObservableList<XYChart.Series<Double,Double>> lineChartData =
+    String[] monthsAndYears = {"July 2022", "August 2022", "September 2022", "October 2022", "Novemeber 2022"};
+    xAxis = new CategoryAxis();
+    xAxis.setCategories(FXCollections.<String>observableArrayList(monthsAndYears));
+      yAxis = new NumberAxis("Percentage", 0, 10, 1);
+      ObservableList<XYChart.Series> lineChartData =
           FXCollections.observableArrayList(
-              new LineChart.Series<>("Series 1",
+              new LineChart.Series<>("Iron 1",
                                      FXCollections.observableArrayList(
-                  new XYChart.Data<>(0.0, 1.0),
-                  new XYChart.Data<>(1.2, 1.4),
-                  new XYChart.Data<>(2.2, 1.9),
-                  new XYChart.Data<>(2.7, 2.3),
-                  new XYChart.Data<>(2.9, 0.5))),
-              new LineChart.Series<>("Series 2",
+                  for (int i = 0; i < 5; i++){
+                    new XYChart.Data<>(monthsAndYears[i], DataBase.getArrayListData());
+                  }
+                  new XYChart.Data<>(monthsAndYears[0], 1.0),
+                  new XYChart.Data<>(monthsAndYears[1], 1.4),
+                  new XYChart.Data<>(monthsAndYears[2], 1.9),
+                  new XYChart.Data<>(monthsAndYears[3], 2.3),
+                  new XYChart.Data<>(monthsAndYears[4], 0.5))),
+              new LineChart.Series<>("Iron 2",
                                      FXCollections.observableArrayList(
-                  new XYChart.Data<>(0.0, 1.6),
-                  new XYChart.Data<>(0.8, 0.4),
-                  new XYChart.Data<>(1.4, 2.9),
-                  new XYChart.Data<>(2.1, 1.3),
-                  new XYChart.Data<>(2.6, 0.9)))
+                  new XYChart.Data<>(monthsAndYears[0], 1.6),
+                  new XYChart.Data<>(monthsAndYears[1], 0.4),
+                  new XYChart.Data<>(monthsAndYears[2], 2.9),
+                  new XYChart.Data<>(monthsAndYears[3], 1.3),
+                  new XYChart.Data<>(monthsAndYears[4], 0.9)))
           );
       chart = new LineChart(xAxis, yAxis, lineChartData);
       return chart;

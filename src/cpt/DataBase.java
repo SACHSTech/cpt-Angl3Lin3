@@ -5,7 +5,8 @@ import java.io.*;
 
 public class DataBase {
 
-    private ArrayList<Data> data = new ArrayList<Data>();
+    private static ArrayList<Data> data = new ArrayList<Data>();
+    private static ArrayList<Double> percentageData = new ArrayList<Double>();
 
     public static void main(String[] args) {
         
@@ -20,11 +21,11 @@ public class DataBase {
             String[] str = line.split(",");
 
             if(j != 0) {
-                for(int i = 0; i < str.length; i++) {
-                    double percent = Double.parseDouble(str[1]);
-                    Data input = new Data(str[0], percent, str[2]);
-                    data.add(input);
-                }
+                double percent = Double.parseDouble(str[1]);
+                Data input = new Data(str[0], percent, str[2]);
+                data.add(input);
+                percentageData.add(percent);
+                
             }
             j++;
             
@@ -40,9 +41,12 @@ public class DataBase {
 
     }
 
-    public ArrayList<Data> getArrayListData(){
+    public static ArrayList<Data> getArrayListData(){
         return data;
     }
    
+    public static ArrayList<Double> getPercentageListData(){
+        return percentageData;
+    }
 
 }

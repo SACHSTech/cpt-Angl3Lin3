@@ -24,6 +24,7 @@ public class Data {
         monthAndYear = date;
     }
 
+    
     public String toString(){
         return valorantRank + " " + distributionPercentage + " " + monthAndYear;
     }
