@@ -8,7 +8,7 @@ public class DataBase {
     private static ArrayList<Data> data = new ArrayList<Data>();
     private static ArrayList<Double> percentageData = new ArrayList<Double>();
 
-    public static void main(String[] args) {
+    public static void run() {
         
         try {
             BufferedReader scan = new BufferedReader(new FileReader("src/cpt/ValorantRanks.csv"));
@@ -31,7 +31,7 @@ public class DataBase {
             
         }
 
-        System.out.println(data);
+        //System.out.println(percentageData);
 
         scan.close();
 
@@ -46,6 +46,7 @@ public class DataBase {
     }
    
     public static ArrayList<Double> getPercentageListData(){
+        run();
         return percentageData;
     }
 
