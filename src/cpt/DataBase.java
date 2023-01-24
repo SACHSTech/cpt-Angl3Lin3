@@ -7,6 +7,7 @@ public class DataBase {
 
     private static ArrayList<Data> data = new ArrayList<Data>();
     private static ArrayList<Double> percentageData = new ArrayList<Double>();
+    private static ArrayList<String> ranksData = new ArrayList<String>();
 
     public static void run() {
         
@@ -25,6 +26,7 @@ public class DataBase {
                 Data input = new Data(str[0], percent, str[2]);
                 data.add(input);
                 percentageData.add(percent);
+                ranksData.add(str[0]);
                 
             }
             j++;
@@ -49,5 +51,11 @@ public class DataBase {
         run();
         return percentageData;
     }
+    
+    public static ArrayList<String> getValorantRanks(){
+        run();
+        return ranksData;
+    }
+
 
 }
