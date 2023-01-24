@@ -46,9 +46,9 @@ public class LineChartView{
           chart.getData().add(series);
           valorantRank++;
       }
+      return chart;
 
       
-      return chart;
 
       
   }

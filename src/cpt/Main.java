@@ -29,13 +29,11 @@ public class Main extends Application {
     tabPane.getTabs().add(tab2);
 
     VBox vBox = new VBox(tabPane);
+    vBox.getChildren().add(LineChartView.LineChart());
     Scene scene = new Scene(vBox, 1000, 1000);
 
-    //Scene scene = new Scene(tabPane, 600, 600);
-    
-    //primaryStage.setScene(scene);
     primaryStage.setTitle("Valorant Ranks");
-    primaryStage.setScene(new Scene(LineChartView.LineChart()));
+    primaryStage.setScene(scene);
 
     primaryStage.show();
   }
