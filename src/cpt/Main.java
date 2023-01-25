@@ -25,20 +25,20 @@ public class Main extends Application {
     TabPane tabPane = new TabPane();
 
     Tab tab1 = new Tab("LineChart");
-    Tab tab2 = new Tab("BarChart");
+    Tab tab2 = new Tab("PieChart");
     
     tabPane.getTabs().add(tab1);
     tabPane.getTabs().add(tab2);
 
     VBox vBox = new VBox(tabPane);
 
-    if (tabPane.getSelectionModel().getSelectedItem() == tab1){
-      vBox.getChildren().add(LineChartView.LineChart());
-    }
+    //\\if (tabPane.getSelectionModel().getSelectedItem() == tab1){
+    //  vBox.getChildren().add(LineChartView.lineChart());
+    //}
 
-    if (tabPane.getSelectionModel().getSelectedItem() == tab2){
-      
-    }
+    //if (tabPane.getSelectionModel().getSelectedItem() == tab2){
+      vBox.getChildren().add(PieChartView.pieChart());
+    //}
     
     Scene scene = new Scene(vBox, 1000, 1000);
 

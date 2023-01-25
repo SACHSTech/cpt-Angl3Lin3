@@ -23,7 +23,7 @@ public class LineChartView{
   private static CategoryAxis xAxis;
   private static NumberAxis yAxis;
 
-  public static Parent LineChart() {
+  public static Parent lineChart() {
 
       xAxis = new CategoryAxis();
       yAxis = new NumberAxis();
