@@ -1,5 +1,7 @@
 package cpt;
 
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,7 +31,15 @@ public class Main extends Application {
     tabPane.getTabs().add(tab2);
 
     VBox vBox = new VBox(tabPane);
-    vBox.getChildren().add(LineChartView.LineChart());
+
+    if (tabPane.getSelectionModel().getSelectedItem() == tab1){
+      vBox.getChildren().add(LineChartView.LineChart());
+    }
+
+    if (tabPane.getSelectionModel().getSelectedItem() == tab2){
+      
+    }
+    
     Scene scene = new Scene(vBox, 1000, 1000);
 
     primaryStage.setTitle("Valorant Ranks");
