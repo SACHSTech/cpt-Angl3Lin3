@@ -15,14 +15,6 @@ public class PieChartView {
 
     public static Parent pieChart() {
         
-        Data A, B, C, D;
-        /**
-        data = FXCollections.observableArrayList(A = new Data("A", 20),
-                                                 B = new Data("B", 30),
-                                                 C = new Data("C", 10),
-                                                 D = new Data("D", 40));
-        final PieChart pie = new PieChart(data);
-        */
         PieChart.Data data[] = new PieChart.Data[25];
 
         for (int i = 0; i < 25; i++){
@@ -30,9 +22,6 @@ public class PieChartView {
         }
 
         PieChart pie = new PieChart(FXCollections.observableArrayList(data));
-        //final String drillDownChartCss =
-        //   getClass().getResource("DrilldownChart.css").toExternalForm();
-        //pie.getStylesheets().add(drillDownChartCss);
 
         for (int i = 0; i< 25; i++){
             setDrilldownData(pie, data[i], i);
@@ -41,16 +30,20 @@ public class PieChartView {
         return pie;
     }
 
-    private static void setDrilldownData(final PieChart pie, final Data data,
-                                  final int i) {
-        data.getNode().setOnMouseClicked((MouseEvent t) -> {
-            pie.setData(FXCollections.observableArrayList(
-                    new Data(i + "-1", 7),
-                    new Data(i + "-2", 2),
-                    new Data(i + "-3", 5),
-                    new Data(i + "-4", 3),
-                    new Data(i + "-5", 2)));
-        });
+    private static void setDrilldownData(final PieChart pie, final Data data,final int i) {
+                                    
+        PieChart.Data inside[] = new PieChart.Data[5];
+
+        String[] monthsAndYears = {"Novemeber 2022", "October 2022", "September 2022", "August 2022", "July 2022"};
+        int count = 0;
+        for (int j = 0; j < 5; j++){
+            inside[j] = new PieChart.Data(monthsAndYears[j], DataBase.getPercentageListData().get(count + i));
+            count+=25;
+        }
+        
+        data.getNode().setOnMouseClicked((MouseEvent t) -> {pie.setData(FXCollections.observableArrayList(inside));});
+        
+
     }
     
 }
