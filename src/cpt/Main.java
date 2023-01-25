@@ -32,14 +32,10 @@ public class Main extends Application {
 
     VBox vBox = new VBox(tabPane);
 
-    //\\if (tabPane.getSelectionModel().getSelectedItem() == tab1){
-    //  vBox.getChildren().add(LineChartView.lineChart());
-    //}
+    //tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.SELECTED_TAB);
+    tab1.setContent(LineChartView.lineChart());
+    tab2.setContent(PieChartView.pieChart());
 
-    //if (tabPane.getSelectionModel().getSelectedItem() == tab2){
-      vBox.getChildren().add(PieChartView.pieChart());
-    //}
-    
     Scene scene = new Scene(vBox, 1000, 1000);
 
     primaryStage.setTitle("Valorant Ranks");
