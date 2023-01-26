@@ -23,9 +23,13 @@ public class PieChartView {
 
         PieChart pie = new PieChart(FXCollections.observableArrayList(data));
 
-        for (int i = 0; i< 25; i++){
+        pie.setTitle("Valorant Rank Distribution Drill Down Pie Chart");
+
+        for (int i = 0; i < 25; i++){
             setDrilldownData(pie, data[i], i);
         }
+
+        
 
         return pie;
     }
@@ -34,7 +38,7 @@ public class PieChartView {
                                     
         PieChart.Data inside[] = new PieChart.Data[5];
 
-        String[] monthsAndYears = {"Novemeber 2022", "October 2022", "September 2022", "August 2022", "July 2022"};
+        String[] monthsAndYears = {"November 2022", "October 2022", "September 2022", "August 2022", "July 2022"};
         int count = 0;
         for (int j = 0; j < 5; j++){
             inside[j] = new PieChart.Data(monthsAndYears[j], DataBase.getPercentageListData().get(count + i));

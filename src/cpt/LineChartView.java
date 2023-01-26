@@ -9,6 +9,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -29,7 +30,7 @@ public class LineChartView{
       yAxis = new NumberAxis();
       chart = new LineChart<>(xAxis, yAxis);
       // setup chart
-      chart.setTitle("Valorant Rank Distribution");
+      chart.setTitle("Valorant Rank Distribution Line Graph");
       xAxis.setLabel("Month and Year");
       yAxis.setLabel("Percentage Distribution %");
       // add starting data
@@ -46,10 +47,11 @@ public class LineChartView{
           chart.getData().add(series);
           valorantRank++;
       }
+
       return chart;
+    }
 
-      
-
-      
-  }
+    public static LineChart<String, Number> getChart(){
+      return chart;
+    }
 }
