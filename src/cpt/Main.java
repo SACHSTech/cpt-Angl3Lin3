@@ -2,14 +2,15 @@ package cpt;
 
 import java.util.List;
 
-import javax.swing.event.ChangeListener;
-
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -29,6 +30,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+
  
 public class Main extends Application {
 
@@ -44,7 +46,6 @@ public class Main extends Application {
 
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 
-
     VBox vBox1 = new VBox();
     VBox vBox2 = new VBox();
 
@@ -54,11 +55,6 @@ public class Main extends Application {
 
     vBox1.getChildren().addAll(LineChartView.lineChart());
     tab1.setContent(vBox1);
-  
-
-    vBox2.getChildren().addAll(PieChartView.pieChart());
-    tab2.setContent(vBox2);
-    
 
     EventHandler<ActionEvent> event1 = new EventHandler<ActionEvent>() {
       public void handle(ActionEvent e){
@@ -69,6 +65,29 @@ public class Main extends Application {
     };
 
     cb1.setOnAction(event1);
+
+    CheckBox[] cb = new CheckBox[25];
+    for (int i = 0; i < 25; i++){
+      cb[i] = new CheckBox(DataBase.getValorantRanks().get(i));
+      vBox2.getChildren().addAll(cb[i]);
+    }
+    
+    EventHandler<ActionEvent> event2 = new EventHandler<ActionEvent>(){
+      public void handle(ActionEvent e){
+        for (int i = 0; i < 25; i++){
+          if (cb[i].isSelected()){
+            
+          }
+        }
+      }
+    };
+
+    for (int i = 0; i < 25; i++){
+      cb[i].setOnAction(event2);
+    }
+  
+    vBox2.getChildren().addAll(PieChartView.pieChart());
+    tab2.setContent(vBox2);
 
     Scene scene = new Scene(tabPane, 1000, 1000);
 
