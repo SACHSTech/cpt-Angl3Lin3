@@ -54,4 +54,8 @@ public class LineChartView{
     public static LineChart<String, Number> getChart(){
       return chart;
     }
+
+    public static NumberAxis getYAxis(){
+      return yAxis;
+    }
 }
