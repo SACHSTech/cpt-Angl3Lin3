@@ -55,7 +55,7 @@ public class LineChartView{
       return chart;
     }
 
-    public static NumberAxis getYAxis(){
-      return yAxis;
+    public static void setYAxis(int num){
+      yAxis.setUpperBound(num);
     }
 }
