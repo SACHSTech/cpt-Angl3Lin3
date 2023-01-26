@@ -2,11 +2,14 @@ package cpt;
 
 import java.util.List;
 
+import javax.swing.event.ChangeListener;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
@@ -17,6 +20,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.Tooltip;
@@ -43,30 +47,28 @@ public class Main extends Application {
 
     VBox vBox1 = new VBox();
     VBox vBox2 = new VBox();
-    //final VBox vbox1 = new VBox();
 
-    CheckBox[] box = new CheckBox[25];
 
-    for (int i = 0; i < 25; i++){
-      CheckBox cb = new CheckBox(DataBase.getValorantRanks().get(i));
-      box[i] = cb;
-      //vBox.getChildren().addAll(cb);
-      vBox1.getChildren().addAll(cb);
-    }
+    CheckBox cb1 = new CheckBox("Remove Data");
+    vBox1.getChildren().addAll(cb1);
+
     vBox1.getChildren().addAll(LineChartView.lineChart());
     tab1.setContent(vBox1);
+  
 
     vBox2.getChildren().addAll(PieChartView.pieChart());
     tab2.setContent(vBox2);
+    
 
-
-    /** 
-    for (int i = 0; i < 25; i++){
-      if (box[i].isSelected()){
-        chart.getData().remove(i);
+    EventHandler<ActionEvent> event1 = new EventHandler<ActionEvent>() {
+      public void handle(ActionEvent e){
+          if (cb1.isSelected()){
+            LineChartView.getChart().getData().remove(0);
+          }
       }
-  }
-  */
+    };
+
+    cb1.setOnAction(event1);
 
     Scene scene = new Scene(tabPane, 1000, 1000);
 
