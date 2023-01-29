@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 public class PieChartView {
 
+    private static PieChart data;
+
     public static Parent pieChart() {
         
         PieChart.Data data[] = new PieChart.Data[25];
@@ -29,8 +31,6 @@ public class PieChartView {
             setDrilldownData(pie, data[i], i);
         }
 
-        
-
         return pie;
     }
 
@@ -46,8 +46,11 @@ public class PieChartView {
         }
         
         data.getNode().setOnMouseClicked((MouseEvent t) -> {pie.setData(FXCollections.observableArrayList(inside));});
-        
 
+    }
+
+    public static PieChart getPieChart(){
+        return data;
     }
     
 }

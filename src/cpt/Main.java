@@ -17,6 +17,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.Chart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -50,7 +51,7 @@ public class Main extends Application {
     VBox vBox2 = new VBox();
 
 
-    CheckBox cb1 = new CheckBox("Remove Data");
+    CheckBox cb1 = new CheckBox("Remove Data From Front");
     vBox1.getChildren().addAll(cb1);
 
     vBox1.getChildren().addAll(LineChartView.lineChart());
@@ -65,27 +66,7 @@ public class Main extends Application {
     };
 
     cb1.setOnAction(event1);
-
-    CheckBox[] cb = new CheckBox[25];
-    for (int i = 0; i < 25; i++){
-      cb[i] = new CheckBox(DataBase.getValorantRanks().get(i));
-      vBox2.getChildren().addAll(cb[i]);
-    }
     
-    EventHandler<ActionEvent> event2 = new EventHandler<ActionEvent>(){
-      public void handle(ActionEvent e){
-        for (int i = 0; i < 25; i++){
-          if (cb[i].isSelected()){
-            
-          }
-        }
-      }
-    };
-
-    for (int i = 0; i < 25; i++){
-      cb[i].setOnAction(event2);
-    }
-  
     vBox2.getChildren().addAll(PieChartView.pieChart());
     tab2.setContent(vBox2);
 

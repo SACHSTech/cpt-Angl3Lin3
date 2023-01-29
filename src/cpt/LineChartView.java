@@ -21,6 +21,7 @@ public class LineChartView{
   
   private static final String[] CATEGORIES = { "July 2022", "August 2022", "September 2022", "October 2022", "Novemeber 2022" };
   private static LineChart<String, Number> chart;
+  private static LineChart<String, Number> series;
   private static CategoryAxis xAxis;
   private static NumberAxis yAxis;
 
@@ -55,7 +56,8 @@ public class LineChartView{
       return chart;
     }
 
-    public static void setYAxis(int num){
-      yAxis.setUpperBound(num);
+    public static LineChart<String,Number> getSeries(){
+      return series;
     }
+
 }
